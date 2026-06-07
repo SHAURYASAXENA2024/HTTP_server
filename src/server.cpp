@@ -9,6 +9,7 @@ private:
   int server_fd;
   int port;
   int sockfd;
+  int acceptConnection;
 
 public:
   void createSocket() {
@@ -35,8 +36,15 @@ public:
     std::cout << "Server is listening to the port 9999" << std::endl;
   }
   void closeSocket() { close(sockfd); }
+  void accept() {
+    acceptConnection = accept(sockfd, struct sockaddr *restrict sockaddr)
+  }
+  void recv() {}
+  void send() {}
 };
-int main() {
+class httpResponse {
+
+} int main() {
   server ss;
   ss.createSocket();
   ss.bindScoket();
